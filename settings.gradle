@@ -6,6 +6,6 @@ pluginManagement {
 plugins {
 }
 
-rootProject.name = 'java-gradle-starter'
+rootProject.name = 'grpc-java-starter'
 
 include('app', 'utilities')
