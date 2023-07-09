@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_package = "rbento.api.v1.message";
+option java_multiple_files = true;
+
+message CommandRequest {
+	string statement = 1;
+}
+
+message CommandResponse {
+	int32 code = 1;
+	string result = 2;
+}
