@@ -4,7 +4,6 @@ plugins {
 }
 
 dependencies {
-	implementation project(':utilities')
 	implementation libs.commons.lang3
 }
 

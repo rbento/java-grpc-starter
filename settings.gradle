@@ -8,4 +8,4 @@ plugins {
 
 rootProject.name = 'grpc-java-starter'
 
-include('app', 'utilities')
+include('api', 'client', 'server')
