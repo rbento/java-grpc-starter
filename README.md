@@ -1,14 +1,11 @@
-# java-gradle-starter
+# grpc-java-starter
 
-Simple starter for Java projects with Gradle and Version Catalogs
+Simple starter for grpc-java based projects.
 
+### Requirements
 
-### Requirements  
-
-
-- [Gradle](https://gradle.org/releases/) 8.1.1
+- [Gradle](https://gradle.org/releases/) 8.2.1
 - [JDK 17](https://www.azul.com/downloads/?package=jdk#zulu) from Azul
-
 
 ### Build
 
@@ -18,8 +15,12 @@ Simple starter for Java projects with Gradle and Version Catalogs
 
 ### Run
 
+Server
 ```bash
-./gradlew :app:run
+./gradlew :server:run
 ```
 
-
+Client
+```bash
+./gradlew :client:run
+```
