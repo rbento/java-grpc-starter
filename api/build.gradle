@@ -1,18 +1,21 @@
-
 plugins {
-	id 'rbento.starter.java-application-conventions'
+  id 'rbento.starter.java-api-conventions'
 }
 
-dependencies {
-	implementation libs.commons.lang3
-}
-
-application {
-	mainClass = 'rbento.starter.app.App'
-}
-
-jar {
-	manifest {
-		attributes 'Main-Class': application.mainClass
-	}
+protobuf {
+  plugins {
+    grpc_java {
+      artifact = libs.protoc.gen.grpc.java.get()
+    }
+  }
+  generateProtoTasks {
+    all().each { task ->
+      task.builtins {
+        java {}
+      }
+      task.plugins {
+        grpc_java {}
+      }
+    }
+  }
 }

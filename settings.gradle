@@ -1,9 +1,6 @@
 
 pluginManagement {
-    includeBuild('build-logic')
-}
-
-plugins {
+  includeBuild('build-logic')
 }
 
 rootProject.name = 'grpc-java-starter'

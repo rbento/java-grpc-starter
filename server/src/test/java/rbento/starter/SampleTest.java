@@ -1,7 +1,7 @@
 
 /* Copyright (c) 2023 Rodrigo Bento */
 
-package rbento.starter.app;
+package rbento.starter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +11,6 @@ import org.junit.jupiter.api.*;
 
 @Slf4j
 class SampleTest {
-
     List<String> strings = new ArrayList<>();
 
     @BeforeAll

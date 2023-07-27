@@ -1,56 +1,63 @@
 plugins {
-    id 'java'
-    id 'idea'
-    id 'io.freefair.lombok'
-    id 'net.ltgt.errorprone'
-    id 'com.diffplug.spotless'
+  id 'java'
+  id 'idea'
+  id 'io.freefair.lombok'
+  id 'net.ltgt.errorprone'
+  id 'com.diffplug.spotless'
 }
 
+group = "rbento"
+version = "1.0.0"
+
 repositories {
-    mavenLocal()
-    mavenCentral()
+  mavenLocal()
+  mavenCentral()
 }
 
 dependencies {
-    errorprone libs.errorprone.config
-    implementation libs.slf4j.simple
-    testImplementation libs.assertj.core
-    testImplementation libs.junit.jupiter
+  errorprone libs.errorprone.core
+  implementation libs.slf4j.simple
+  testImplementation libs.assertj.core
+  testImplementation libs.junit.jupiter
 }
 
 java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(17)
-        vendor = JvmVendorSpec.AZUL
-    }
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(17)
+    vendor = JvmVendorSpec.AZUL
+  }
 }
 
 spotless {
-    encoding 'UTF-8'
-    java {
-        target 'src/*/java/**/*.java'
-        targetExclude "${buildDir}/**"
-        importOrder()
-        removeUnusedImports()
-        palantirJavaFormat()
-        formatAnnotations()
-        endWithNewline()
-        licenseHeaderFile "${project.rootDir}/COPYRIGHT"
-    }
+  encoding 'UTF-8'
+  java {
+    target 'src/*/java/**/*.java'
+    targetExclude "${buildDir}/**"
+    importOrder()
+    removeUnusedImports()
+    palantirJavaFormat()
+    formatAnnotations()
+    endWithNewline()
+    licenseHeaderFile "${project.rootDir}/COPYRIGHT"
+  }
 }
 
 testing {
-    suites {
-        test {
-            useJUnitJupiter(libs.versions.junit.jupiter.get())
-        }
+  suites {
+    test {
+      useJUnitJupiter(libs.versions.junit.jupiter.get())
     }
+  }
 }
 
 test {
-    testLogging {
-        events "PASSED", "FAILED", "SKIPPED"
-    }
+  testLogging {
+    events "PASSED", "FAILED", "SKIPPED"
+  }
 }
 
-compileJava.dependsOn 'spotlessApply'
+compileJava {
+  options.errorprone.disableWarningsInGeneratedCode = true
+  options.errorprone.excludedPaths = '.*/build/generated/.*'
+  dependsOn 'spotlessApply'
+}

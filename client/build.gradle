@@ -1,18 +1,13 @@
-
 plugins {
-	id 'rbento.starter.java-application-conventions'
+  id 'rbento.starter.java-application-conventions'
 }
 
 dependencies {
-	implementation libs.commons.lang3
+  implementation libs.bundles.grpc.minimal
+  implementation libs.commons.lang3
+  implementation libs.grpc.java.starter.api.java
 }
 
 application {
-	mainClass = 'rbento.starter.app.App'
-}
-
-jar {
-	manifest {
-		attributes 'Main-Class': application.mainClass
-	}
+  mainClass = 'rbento.starter.Client'
 }

@@ -1,4 +1,5 @@
 plugins {
-    id 'rbento.starter.java-common-conventions'
-    id 'java-library'
+  id 'rbento.starter.java-common-conventions'
+  id 'java-library'
+  id 'maven-publish'
 }
