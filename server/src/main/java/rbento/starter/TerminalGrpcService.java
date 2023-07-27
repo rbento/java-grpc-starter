@@ -11,7 +11,7 @@ import rbento.api.v1.TerminalGrpc;
 @Slf4j
 public class TerminalGrpcService extends TerminalGrpc.TerminalImplBase {
 
-    private TerminalService service = new TerminalService();
+    private final TerminalService service = new TerminalService();
 
     @Override
     public void executeCommand(CommandRequest request, io.grpc.stub.StreamObserver<CommandResponse> responseObserver) {

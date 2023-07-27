@@ -16,13 +16,13 @@ public class CommandInterceptor implements ServerInterceptor {
         return new RequestListener<>(next.startCall(new ResponseListener<>(call), headers));
     }
 
-    static class ResponseListener<RespT> extends ForwardingServerCall.SimpleForwardingServerCall {
-        protected ResponseListener(ServerCall delegate) {
+    static class ResponseListener<ReqT, RespT> extends ForwardingServerCall.SimpleForwardingServerCall<ReqT, RespT> {
+        protected ResponseListener(ServerCall<ReqT, RespT> delegate) {
             super(delegate);
         }
 
         @Override
-        public void sendMessage(Object message) {
+        public void sendMessage(RespT message) {
             log.info("sendMessage: {}", message);
             super.sendMessage(message);
         }
