@@ -4,8 +4,8 @@ plugins {
 }
 
 dependencies {
-  compileOnly libs.javax.annotation.api
-  compileOnly libs.bundles.grpc.minimal
+  implementation libs.javax.annotation.api
+  implementation libs.bundles.grpc.minimal
 }
 
 // https://github.com/google/protobuf-gradle-plugin/issues/8

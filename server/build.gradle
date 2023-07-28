@@ -4,9 +4,9 @@ plugins {
 }
 
 dependencies {
+  implementation project(":api")
   implementation libs.bundles.grpc.minimal
   implementation libs.commons.lang3
-  implementation libs.grpc.java.starter.api.java
 }
 
 application {
