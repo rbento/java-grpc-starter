@@ -10,31 +10,29 @@ protobuf = "0.9.4"
 assertj = "3.24.2"
 commons-lang3 = "3.12.0"
 commons-io = "2.11.0"
-grpc = "1.56.1"
+grpc = "1.57.0"
 junit-jupiter = "5.9.3"
 slf4j = "2.0.7"
+javax-annotation = "1.3.2"
 
 # Artifacts
 protoc = "3.23.4"
 
 [libraries]
-
-# Plugins Classpath
+# Gradle Plugin Classpath
 errorprone-gradle = { module = "net.ltgt.gradle:gradle-errorprone-plugin", version.ref = "errorprone" }
 lombok-gradle = { module = "io.freefair.gradle:lombok-plugin", version.ref = "lombok" }
 protobuf-gradle = { module = "com.google.protobuf:protobuf-gradle-plugin", version.ref = "protobuf" }
 spotless-gradle = { module = "com.diffplug.spotless:spotless-plugin-gradle", version.ref = "spotless" }
 
-# Artifacts
-protoc-gen-grpc-java = { module = "io.grpc:protoc-gen-grpc-java", version = "1.56.1" }
-protoc-gen-grpc-kotlin = { module = "io.grpc:protoc-gen-grpc-kotlin", version = "1.3.0:jdk8@jar" }
-protoc-gen-grpc-go = { module = "io.grpc:protoc-gen-go-grpc", version = "1.3.0" }
-
-protoc-artifact = { module = "com.google.protobuf:protoc", version.ref = "protoc" }
-protoc-artifact-platform = { module = "com.google.protobuf:protoc", version = "3.23.4" }
-
-# Plugins Configuration
+# Gradle Plugin Configuration
 errorprone-core = { module = "com.google.errorprone:error_prone_core", version.ref = "errorprone-core" }
+
+# Artifact
+protoc-artifact = { module = "com.google.protobuf:protoc", version.ref = "protoc" }
+
+# Artifact Plugin
+protoc-gen-grpc-java = { module = "io.grpc:protoc-gen-grpc-java", version.ref = "grpc" }
 
 # Libraries
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
@@ -45,18 +43,26 @@ grpc-protobuf = { module = "io.grpc:grpc-protobuf", version.ref = "grpc" }
 grpc-stub = { module = "io.grpc:grpc-stub", version.ref = "grpc" }
 grpc-services = { module = "io.grpc:grpc-services", version.ref = "grpc" }
 grpc-testing = { module = "io.grpc:grpc-testing", version.ref = "grpc" }
-javax-annotation-api = { module = "javax.annotation:javax.annotation-api", version = "1.3.2" }
+javax-annotation-api = { module = "javax.annotation:javax.annotation-api", version.ref = "javax-annotation" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }
 protobuf-java-util = { module = "com.google.protobuf:protobuf-java-util", version.ref = "protoc" }
 protobuf-java = { module = "com.google.protobuf:protobuf-java", version.ref = "protoc" }
 slf4j-simple = { module = "org.slf4j:slf4j-simple", version.ref = "slf4j" }
-
-[bundles]
-grpc-minimal = ["grpc-netty", "grpc-protobuf", "grpc-services", "grpc-stub", "grpc-testing",
-	"protobuf-java", "protobuf-java-util"]
 
 [plugins]
 protobuf = { id = "com.google.protobuf", version.ref = "protobuf" }
 errorprone = { id = "net.ltgt.errorprone", version.ref = "errorprone" }
 lombok = { id = "io.freefair.lombok", version.ref = "lombok" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
+
+[bundles]
+grpc-minimal = [
+	"grpc-netty",
+	"grpc-protobuf",
+	"grpc-services",
+	"grpc-stub",
+	"grpc-testing",
+	"protobuf-java",
+	"protobuf-java-util"
+]
+
