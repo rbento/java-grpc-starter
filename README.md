@@ -1,5 +1,5 @@
-# grpc-java-starter
-![Build](https://github.com/rbento/grpc-java-starter/actions/workflows/gradle.yml/badge.svg)
+# java-grpc-starter
+![Build](https://github.com/rbento/java-grpc-starter/actions/workflows/gradle.yml/badge.svg)
 
 Simple starter for grpc-java based projects.
 
