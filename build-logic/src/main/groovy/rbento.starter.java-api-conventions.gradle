@@ -1,4 +1,3 @@
-
 plugins {
   id 'rbento.starter.java-library-conventions'
   id 'com.google.protobuf'
@@ -6,14 +5,15 @@ plugins {
 
 dependencies {
   implementation libs.javax.annotation.api
-  implementation libs.bundles.grpc.minimal
+  implementation libs.bundles.grpc
 }
 
-// https://github.com/google/protobuf-gradle-plugin/issues/8
-// https://github.com/google/protobuf-gradle-plugin/issues/722
-// https://github.com/protocolbuffers/protobuf/issues/12056
 protobuf {
   protoc {
     artifact = libs.protoc.artifact.get()
   }
 }
+
+// https://github.com/google/protobuf-gradle-plugin/issues/8
+// https://github.com/google/protobuf-gradle-plugin/issues/722
+// https://github.com/protocolbuffers/protobuf/issues/12056

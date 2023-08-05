@@ -56,13 +56,15 @@ lombok = { id = "io.freefair.lombok", version.ref = "lombok" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 
 [bundles]
-grpc-minimal = [
+grpc = [
 	"grpc-netty",
 	"grpc-protobuf",
 	"grpc-services",
 	"grpc-stub",
-	"grpc-testing",
 	"protobuf-java",
 	"protobuf-java-util"
 ]
 
+grpc-test = [
+	"grpc-testing"
+]
