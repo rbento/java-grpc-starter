@@ -10,7 +10,7 @@ import rbento.api.v1.CommandResponse;
 @Slf4j
 public class Client {
     private static final String HOST = "localhost";
-    private static final int PORT = 8080;
+    private static final int PORT = 6565;
 
     public static void main(String[] args) {
 

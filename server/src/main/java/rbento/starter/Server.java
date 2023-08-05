@@ -10,7 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class Server {
-    private static final int SERVER_PORT = 8080;
+    private static final int SERVER_PORT = 6565;
 
     @SneakyThrows
     public static void main(String[] args) {
